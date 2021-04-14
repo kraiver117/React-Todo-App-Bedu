@@ -1,0 +1,9 @@
+.completed_todo {
+    text-decoration: line-through;
+    margin: 0px 10px 0px 10px;
+}
+
+.todo_container {
+    display: flex;
+    margin: 10px;
+}
