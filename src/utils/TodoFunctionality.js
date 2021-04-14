@@ -4,14 +4,23 @@ import MockDataTasks from '../utils/TodoListMockData';
 export const Todo = () => {
     const [tasks, setTasks] = useState(MockDataTasks);
     const [input, setInput] = useState('');
+    const [todoAlert, setTodoAlert] = useState('');
 
     const createNewTodo = (e) => {
         e.preventDefault();
+        setTodoAlert('');
+
         if (input === '') {
             return;
         } else {
-            setTasks([{id: Date.now(), todo: input , completed: false}, ...tasks]);
-            setInput('');
+            const exists = tasks.find(task => input === task.todo);
+
+            if (exists) {
+                setTodoAlert(`La tarea ${input} ya existe`);
+            } else {
+                setTasks([{id: Date.now(), todo: input , completed: false}, ...tasks]);
+                setInput('');
+            }
         }
     }
     
@@ -38,9 +47,11 @@ export const Todo = () => {
     const onChange = (e) => {
         e.preventDefault();
         setInput(e.target.value);
+        setTodoAlert('');
     }
 
     return {
+        todoAlert,
         tasks,
         input,
         createNewTodo,

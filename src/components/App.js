@@ -1,13 +1,14 @@
 import React from 'react'
+import { Container, Alert } from 'react-bootstrap';
 import Header from './Header'
 import Form from './Form'
 import TodoList from './TodoList'
-import { Todo } from '../utils/TodoFunctionality';
 import NavBar from './NavBar';
-import { Container } from 'react-bootstrap';
+import { Todo } from '../utils/TodoFunctionality';
 
 const App = () => {
     const {
+      todoAlert,
       tasks,
       input,
       createNewTodo,
@@ -22,6 +23,7 @@ const App = () => {
         <NavBar />
         <Header tasks={tasks} />
         <Form createNewTodo={createNewTodo} onChange={onChange} input={input}/>
+        { todoAlert && <Alert variant="danger" className="text-center">{todoAlert}</Alert> }
         <TodoList 
           tasks={tasks} 
           updateTodo={updateTodo}

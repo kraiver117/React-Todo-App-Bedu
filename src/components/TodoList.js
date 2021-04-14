@@ -46,7 +46,7 @@ class TodoList extends React.Component {
 TodoList.propTypes = {
     tasks: PropTypes.arrayOf( 
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired,
             todo: PropTypes.string.isRequired,
             completed: PropTypes.bool.isRequired
         }).isRequired

@@ -15,10 +15,10 @@ class Header extends React.Component {
 Header.propTypes = {
     tasks: PropTypes.arrayOf( 
         PropTypes.shape({
-            id: PropTypes.string,
-            todo: PropTypes.string,
-            completed: PropTypes.bool
-        })
+            id: PropTypes.number.isRequired,
+            todo: PropTypes.string.isRequired,
+            completed: PropTypes.bool.isRequired
+        }).isRequired
     )
 }
 
